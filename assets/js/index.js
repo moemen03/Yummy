@@ -200,7 +200,7 @@ async function mealDetails(id){
         <img class="w-100 rounded-3" src="${res.meals[0].strMealThumb}"
             alt="">
         <h2>${res.meals[0].strMeal}</h2>
-        <a onclick="searchByName('${prev}')" target="_blank" class="btn btn-info">Back</a>
+        <a onclick="searchByName('${''}')" target="_blank" class="btn btn-info">Back</a>
         </div>
 
         <div class="col-md-8">
