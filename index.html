@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="icon" href="./assets/images/logo.png" />
+
+    <title>Yummy</title>
+
+    <link rel="stylesheet" href="./assets/css/all.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body class="bg-black">
+    
+
+
+
+
+    <!-- container -->
+
+
+
+
+
+
+    <!--  data  -->
+
+    <div class="data min-vh-100 position-relative >
+
+      <!-- rowdata -->
+      <div class="container">
+
+        <div class="container w-85 search " id="search">    
+        </div>
+
+
+        <div class="loading-screen">
+          <div class="ring">
+            <span class="ss">loading...</span>
+          </div>
+        </div>
+
+
+        <div class="container w-85">
+          <div class="row py-5 g-4 position-relative" id="Data">
+            
+
+
+            <!-- categories -->
+            <!-- <div class="col-md-3">
+              <div class="meal position-relative overflow-hidden rounded-2 cursor-pointer">
+                  <img class="w-100" src="./assets/images/logo.png" alt="" srcset="">
+                  <div class="layer position-absolute text-center text-black p-2">
+                      <h3>category</h3>
+                      <p>description Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, soluta!</p>
+                  </div>
+              </div>
+            </div> -->
+  
+  
+            <!-- Area -->
+            <!-- <div class="col-md-3">
+              <div class="rounded-2 text-center cursor-pointer">
+                      <i class="fa-solid fa-house-laptop fa-4x"></i>
+                      <h3>Area</h3>
+              </div>
+            </div> -->
+  
+  
+            <!-- ingredients -->
+            <!-- <div class="col-md-3">
+              <div class="rounded-2 text-center cursor-pointer">
+                      <i class="fa-solid fa-drumstick-bite fa-4x"></i>
+                      <h3>Ingredient</h3>
+                      <p>Description</p>
+              </div>
+            </div> -->
+  
+  
+            <!-- contact  -->
+            <!-- <div class="contact">
+              <div class="container w-75 text-center">
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <input type="text" class="nameInput form-control"
+                            placeholder="Enter Your Name">
+                        <div class="nameAlert alert alert-danger w-100 mt-2 d-none">
+                            Special characters and numbers not allowed
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="email" class="emailInput form-control "
+                            placeholder="Enter Your Email" >
+                        <div class="emailAlert alert alert-danger w-100 mt-2 d-none">
+                            Email not valid *exemple@yyy.zzz
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input type="text" class="phoneInput form-control "
+                            placeholder="Enter Your Phone" >
+                        <div class="phoneAlert alert alert-danger w-100 mt-2 d-none">
+                            Enter valid Phone Number
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input onkeyup="contactValidation()" type="number" class="ageInput form-control "
+                            placeholder="Enter Your Age" >
+                        <div class="ageAlert alert alert-danger w-100 mt-2 d-none">
+                            Enter valid age
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input onkeyup="contactValidation()" type="password"
+                            class="passwordInput form-control " placeholder="Enter Your Password" >
+                        <div class="passwordAlert alert alert-danger w-100 mt-2 d-none">
+                            Enter valid password *Minimum eight characters, at least one letter and one number:*
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <input onkeyup="contactValidation()" type="password"
+                            class="repasswordInput form-control " placeholder="Repassword">
+                        <div class="repasswordAlert alert alert-danger w-100 mt-2 d-none">
+                            Enter valid repassword
+                        </div>
+                    </div>
+                </div>
+                <button disabled="" class="submitBtn btn btn-outline-danger px-2 mt-3">Submit</button>
+            </div>
+            </div> -->
+  
+  
+            <!-- meal details -->
+            <!-- <div class="col-md-4">
+              <img class="w-100 rounded-3" src="${meal.strMealThumb}"
+                  alt="">
+                  <h2>${meal.strMeal}</h2>
+            </div>
+            <div class="col-md-8">
+                <h2>Instructions</h2>
+                <p>${meal.strInstructions}</p>
+                <h3><span class="fw-bolder">Area : </span>${meal.strArea}</h3>
+                <h3><span class="fw-bolder">Category : </span>${meal.strCategory}</h3>
+                <h3>Recipes :</h3>
+                <ul class="list-unstyled d-flex g-3 flex-wrap">
+                    ${ingredients}
+                </ul>
+  
+                <h3>Tags :</h3>
+                <ul class="list-unstyled d-flex g-3 flex-wrap">
+                    ${tagsStr}
+                </ul>
+  
+                <a target="_blank" href="${meal.strSource}" class="btn btn-success">Source</a>
+                <a target="_blank" href="${meal.strYoutube}" class="btn btn-danger">Youtube</a>
+            </div> -->
+  
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <!-- side nav -->
+
+    <div class="side-nav text-white d-flex">
+      <div class="tabs d-flex flex-column justify-content-between min-vh-100 p-4">
+
+        <div class="links">
+          <ul class="list-unstyled overflow-hidden">
+            <li id="searchList" class="py-2 position-relative pointer m-2">Search</li>
+            <li id="catList" class="py-2 position-relative pointer m-2">Categories</li>
+            <li id="areaList" class="py-2 position-relative pointer m-2">Area</li>
+            <li id="ingrList" class="py-2 position-relative pointer m-2">Ingredients</li>
+            <li id="contList" class="py-2 position-relative pointer m-2">Contact Us</li>
+          </ul>
+        </div>
+
+        <div class="nav-footer">
+          <div class="social-icons">
+            <i class="fa-brands fa-facebook "></i>
+            <i class="fa-brands fa-twitter "></i>
+            <i class="fa-solid fa-globe "></i>
+          </div>
+          <div class="footer">
+            <p>Copyright Â© 2023 All Rights <br>Reserved.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="nav-header d-flex flex-column justify-content-between py-4 text-center px-2 bg-white text-black">
+        <img class="logo" src="./assets/images/logo.png">
+        <i class="open-icon fa-solid fa-align-justify fa-2x"></i>
+        <i class="close-icon fa-solid fa-x fa-2x d-none"></i>
+
+        <div>
+          <i class="fa-solid fa-globe d-block "></i>
+          <i class="fa-solid fa-share-nodes d-block "></i>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+
+    <script src="./assets/js/jquery-3.6.0.min.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
