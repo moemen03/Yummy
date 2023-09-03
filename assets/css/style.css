@@ -63,11 +63,11 @@ i{
     z-index: 99;
 } */
 
-
+/* meow */
 .loading-screen {
     position: absolute;
     z-index: 9;
-    background-color: #0D0D0D;
+    background-color: #000000;
     display: flex;
     top: 0;
     left: 10%;
