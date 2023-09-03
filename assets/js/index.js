@@ -48,8 +48,9 @@ const databox = document.getElementById("Data");
 function firststartLoading() {
     $('body').addClass('overflow-hidden')
     $('.loading-screen').delay(800).fadeOut(100,()=>{
-        $('body').delay(800).removeClass('overflow-hidden')
+        $('body').delay(800).removeClass('overflow-hidden');
     });
+    $('.side-nav').animate({ left: '-260px' }, 1200);
     $(".inner-loading-screen").fadeOut(3);
 }
 

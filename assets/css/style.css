@@ -41,7 +41,7 @@ body{
     z-index: 100;
     top: 0;
     min-height: 100vh;
-    left: -260px;
+    left: 0px;
 }
 i{
     cursor: pointer;
@@ -67,7 +67,7 @@ i{
 /* meow */
 .loading-screen {
     position: absolute;
-    z-index: 9;
+    z-index: 101;
     background-color: #000000;
     display: flex;
     top: 0;
