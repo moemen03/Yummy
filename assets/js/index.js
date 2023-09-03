@@ -45,20 +45,37 @@ const databox = document.getElementById("Data");
 
 
 // for loading ring
-function startLoading() {
-    databox.innerHTML=``
-  $('.loading-screen').delay(500).removeAttr('style').fadeOut();
+function firststartLoading() {
+    $('body').addClass('overflow-hidden')
+    $('.loading-screen').delay(800).fadeOut(100,()=>{
+        $('body').delay(800).removeClass('overflow-hidden')
+    });
+    $(".inner-loading-screen").fadeOut(3);
 }
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+//----------
+//----------
 //----------
 // when click on search
+//----------
+//----------
 //----------
 
 function showSearchInputs() {
     hideData();
-    startLoading();
   searchBox.innerHTML = `
     <div class="row py-5">
         <div class="col-md-6">
@@ -106,8 +123,27 @@ async function searchByLetter(term){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ----------------
+// ----------------
 // ----------------
 // display the meals
+// ----------------
+// ----------------
 // ----------------
 function displayMeals(arr){
     let cartona = ``;
@@ -129,8 +165,8 @@ function displayMeals(arr){
 
 async function mealDetails(id){
     close();
-    startLoading();
-
+    databox.innerHTML = ""
+    await $(".inner-loading-screen").fadeIn(500);
     // https://www.themealdb.com/api/json/v1/1/lookup.php?i=52772
 
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`)
@@ -187,9 +223,18 @@ async function mealDetails(id){
         </div>
     `
 
-
-    
+    $(".inner-loading-screen").fadeOut(500);
 }
+
+
+
+
+
+
+
+
+
+
 
 
 //meow
@@ -197,13 +242,29 @@ async function mealDetails(id){
 
 
 
+
+
+
+
+
+
+
+
+
+
+// -----------------
+// -----------------
 // -----------------
 // get the categories
 // -----------------
+// -----------------
+// -----------------
 document.getElementById("catList").addEventListener("click", getCategories);
 async function getCategories() {
+
     close();
-    startLoading();
+    databox.innerHTML = ""
+    await $(".inner-loading-screen").fadeIn(300);
     hideSearch();
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/categories.php`);
     res = await res.json();
@@ -216,6 +277,7 @@ async function getCategories() {
         console.log("booo");
     }
     
+    $(".inner-loading-screen").fadeOut(300);
 
 }
 
@@ -240,7 +302,6 @@ function displayCategories(arr){
 async function getThisCategory(name){
     // https://www.themealdb.com/api/json/v1/1/filter.php?c=
 
-  startLoading();
   let res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${name}`);
   res = await res.json();
   prev = name;
@@ -256,13 +317,24 @@ async function getThisCategory(name){
 
 
 
+
+
+
+
+
+
+// -----------------
+// -----------------
 // -----------------
 // get the Area
 // -----------------
+// -----------------
+// -----------------
 document.getElementById("areaList").addEventListener("click", getArea);
 async function getArea(){
+    databox.innerHTML = ""
+    await $(".inner-loading-screen").fadeIn(500);
     close();
-    startLoading();
     hideSearch();
     
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?a=list`);
@@ -270,8 +342,7 @@ async function getArea(){
     console.log(res.meals);
     displayArea(res.meals);
 
-  
-
+   $(".inner-loading-screen").fadeOut(500);
 }
 function displayArea(arr){
     let cartona=``;
@@ -290,7 +361,6 @@ function displayArea(arr){
 }
 
 async function getMealsOfArea(name){
-    startLoading();
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?a=${name}`);
     res = await res.json();
 
@@ -302,21 +372,41 @@ async function getMealsOfArea(name){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------
+// -----------------
 // -----------------
 // get the Ingridents
 // -----------------
+// -----------------
+// -----------------
 document.getElementById("ingrList").addEventListener("click", getIngridents);
 async function getIngridents(){
+    databox.innerHTML = ""
+    await $(".inner-loading-screen").fadeIn(300);
     close();
     hideSearch();
-    startLoading();
     
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/list.php?i=list`);
     res = await res.json();
     console.log(res.meals);
     displayIng(res.meals.slice(0,24));
 
-  
+    await $(".inner-loading-screen").fadeOut(300);
 }
 function displayIng(arr){
     let cartona=``;
@@ -336,7 +426,6 @@ function displayIng(arr){
 
 async function ingrediensMeals(name){
 
-    startLoading();
     // www.themealdb.com/api/json/v1/1/filter.php?i=chicken_breast
 
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${name}`);
@@ -347,12 +436,28 @@ async function ingrediensMeals(name){
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------
+// -----------------
 // -----------------
 // get the contact
 // -----------------
+// -----------------
+// -----------------
 document.getElementById("contList").addEventListener("click", showContact);
-
-
 
 const regName = /^[a-zA-Z ]+$/;
 const regEmail = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -362,10 +467,12 @@ const regPass = /^(?=.*\d)(?=.*[a-z])[0-9a-zA-Z]{8,}$/;
 
 
 function showContact(){
+    databox.innerHTML = ""
+    $(".inner-loading-screen").fadeIn(300);
     close();
     hideSearch();
-    startLoading();
-
+    
+    $(".inner-loading-screen").fadeOut(300);
     databox.innerHTML=`
         <div class="contact">
         <div class="container w-75 text-center">
@@ -568,11 +675,15 @@ function showContact(){
 
 
 // --------------
+// --------------
+// --------------
 // start page
 // --------------
+// --------------
+// --------------
 
-async function begin(){
-    startLoading();
+async function initial(){
+
     let res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${''}`);
     res = await res.json();
   
@@ -581,21 +692,49 @@ async function begin(){
     } else {
       console.log("booo");
     }
-    
 }
-begin();
+
+async function begin(fun){
+    firststartLoading();
+    fun();
+}
+
+$(document).ready(function () {
+    begin(initial);
+})
+
+
+
+
 
 
 
 // --------------
+// --------------
+// --------------
 // hide searchbox
+// --------------
+// --------------
 // --------------
 function hideSearch(){
     searchBox.innerHTML=``;
 }
+
+
+
+
+
+
+
+
+// --------------
+// --------------
 // --------------
 // hide databox
+// --------------
+// --------------
 // --------------
 function hideData(){
     databox.innerHTML=``;
 }
+
