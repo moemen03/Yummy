@@ -46,10 +46,8 @@ const databox = document.getElementById("Data");
 
 // for loading ring
 function startLoading() {
+    databox.innerHTML=``
   $('.loading-screen').delay(500).removeAttr('style').fadeOut();
-//   $('.loading-screen').delay(50000,()=>{
-//     $('.loading-screen').removeAttr('style').addClass('bg-transparent');
-//   })
 }
 
 
@@ -76,8 +74,6 @@ function showSearchInputs() {
 document.getElementById("searchList").addEventListener("click", showSearchInputs);
 
 async function searchByName(term) {
-  startLoading();
-    
     prev = term;
   let res = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`);
   res = await res.json();
@@ -92,7 +88,6 @@ async function searchByName(term) {
 }
 
 async function searchByLetter(term){
-    startLoading();
     prev = term;
     if(term == ""){
         term ="m"
